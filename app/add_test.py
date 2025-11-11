@@ -16,7 +16,7 @@ async def load_university_to_db(json_data):
 
 async def load_spec_to_db(json_data):
     for spec in json_data['spec']:
-        university = await UniversityDAO.get_by_fill(**spec['university'])
+        university = await UniversityDAO.find_by_fil(name=spec.pop('university'))
         await SpecDAO.add(**spec, university_id=university.id)
 
 
