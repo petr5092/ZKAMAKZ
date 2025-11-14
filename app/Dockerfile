@@ -9,8 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 8000
 
-COPY ./docker/*.sh /max_container/docker/
 
+RUN chmod +x ./docker/max_app.sh
 CMD ["python", "main.py"]
